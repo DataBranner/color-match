@@ -32,28 +32,9 @@ function addBackgroundColorButton(text='Change background color') {
   document.body.appendChild(button);
 };
 
-// Process user-submitted color channel values
+// stub
 function submitColorChannels() {
-  for (var i=0 ; i < document.forms[0].elements.length ; i++) {
-    var key = document.forms[0].elements[i].id;
-    var value = document.forms[0].elements[i].value;
-    if (key && value) {
-      if (validate(value)) {
-        this.userColors[key] = value;
-        console.log(key, i, document.forms[0].elements[i].value);
-      }
-      else {
-        alert("Field " + key + " has unacceptable value " + value);
-        return {};
-      }
-    }
-  }
-  return this.userColors;
-}
-
-// Validate as int in range (0, 255]
-function validate(value) {
-  return (0 <= value <= 255) && (value - Math.floor(value) === 0);
+  console.log(this)
 }
 
 // Add form (with three fields) to submit color
@@ -62,25 +43,24 @@ function addColorForm() {
   document.body.appendChild(form);
  
   // Add ID-ed fields for the colors
-  for (var i=0 ; i<this.colors.length ; i++) {
+  var colors = ['red', 'green', 'blue'];
+  for (var i=0 ; i<colors.length ; i++) {
     var input = document.createElement('input');
     input.type = 'text';
-    input.placeholder = colors[i].toUpperCase();
-    input.id = this.colors[i];
+    input.value = colors[i];
+    input.id = colors[i];
     form.appendChild(input);
   }
 
   var formButton = document.createElement('button');
   form.appendChild(formButton);
   formButton.innerHTML = 'Submit color channels';
+  formButton.id = "userColors"
   formButton.onclick = function() {
-    this.userColors = submitColorChannels();
+    submitColorChannels();
     return false;
   }
 }
-
-var colors = ['red', 'green', 'blue'];
-var userColors = {};
 
 // Main IIFE
 (function() {
