@@ -25,21 +25,22 @@ function initializeBackgroundColorButton(text='Change background color') {
   }
   var div = document.createElement('div');
   div.style.display = 'block';
-  div.className = "centered";
+  // div.className = "centered";
   document.body.appendChild(div);
   var subDiv = document.createElement('div');
-  subDiv.style.display = 'block';
-  subDiv.className = "centered";
+  subDiv.style.display = 'block'; // Enables semi-centered children
+  subDiv.className = "centered"; // Enables semi-centered children
   div.appendChild(subDiv);
   var subDiv1 = document.createElement('div');
   subDiv.appendChild(subDiv1);
-  subDiv1.style.display = 'inline-block';
-  subDiv1.className = "centered";
+  // subDiv1.style.display = 'inline';
+  // subDiv1.className = "centered";
   subDiv1.appendChild(button);
   var subDiv2 = document.createElement('div');
-  subDiv1.parentNode.insertBefore(subDiv2, subDiv1.nextSibling);
+  // subDiv1.parentNode.insertBefore(subDiv2, subDiv1.nextSibling);
+  subDiv.appendChild(subDiv2);
   subDiv2.style.backgroundColor = '#ffffff';
-  subDiv2.style.display = 'inline-block';
+  subDiv2.style.display = 'inline-block'; // Enables backgroundColor
   this.score = document.createElement('p');
   subDiv2.appendChild(this.score).style.fontWeight = 'bold';
   figureScore(this.origColor);
