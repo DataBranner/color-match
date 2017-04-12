@@ -6,7 +6,9 @@ Features:
 
  * The browser console logs the updated RGB values for easier manual testing.
  * As much styling and HTML as possible is done via JavaScript.
- * If user's values bring the value of an RGB channel above 255, the new value is not calculated starting from 0 (by ordinary modulus) but counting down from 255 again (by "palindromic modulus" or triangle wave). For example, if a channel value is 250 and I add 25, the new value is 
+ * User can request new random background color with a button rather than by reloading the page.
+ * User input is validated; only integers are accepted (including negative integers, to aid testing).
+ * If User's values bring the value of an RGB channel above 255, the new value is not calculated starting from 0 (by ordinary modulus) but counting down from 255 again (by "palindromic modulus" or triangle wave). For example, if a channel value is 250 and User adds 25, the new value is 
  
    ```
    250 + 5 - 20 => 235
@@ -15,7 +17,7 @@ Features:
    rather than 
 
    ```
-   250 + 6 => 0, + 19 => 19
+   250 + 6 => 0; + 19 => 19
    ```
 
    Values in [0, 255] figured by ordinary modulus describe a sawtooth wave of period 255; those figured by "palindromic modulus" describe a triangle wave of period 510.

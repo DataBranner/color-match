@@ -34,7 +34,7 @@ function initializeBackgroundColorButton(text='Change background color') {
   var subDiv1 = document.createElement('div');
   subDiv.appendChild(subDiv1);
   // subDiv1.style.display = 'inline';
-  // subDiv1.className = "centered";
+   subDiv1.className = "centered";
   subDiv1.appendChild(button);
   var subDiv2 = document.createElement('div');
   // subDiv1.parentNode.insertBefore(subDiv2, subDiv1.nextSibling);
