@@ -1,5 +1,5 @@
 var colorNames = ['red', 'green', 'blue'];
-var origColor = null;
+var origColor = Array();
 var userColor = Array();
 var score = String();
 
@@ -23,7 +23,8 @@ function initializeBackgroundColorButton(text='Change background color') {
     changeBackground();
     document.forms[0].elements['red'].select();
   }
-  var table = centerElement(document.createElement('table'));
+  var table = document.createElement('table');
+  table.className = "centered";
   var row = table.insertRow(0);
   var cell1 = row.insertCell(0);
   var cell2 = row.insertCell(1);
@@ -65,7 +66,8 @@ function initializeColorForm() {
   div.style.position = 'fixed';
   div.style.bottom = 0;
   div.style.width = "100%"
-  var table = centerElement(document.createElement('table'));
+  var table = document.createElement('table');
+  table.className = "centered";
   var row = table.insertRow(0);
   var cell = row.insertCell(0);
   cell.appendChild(form);
@@ -78,13 +80,6 @@ function initializeColorForm() {
 // ********************
 // Utility functions
 // ********************
-
-// Center element
-function centerElement(element) {
-  element.style.margin = 'auto';
-  element.style.width = '0';
-  return element
-}
 
 // Generate a random decimal number 0 <= n <= 255
 function rand256() {

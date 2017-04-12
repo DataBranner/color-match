@@ -1,5 +1,5 @@
 var colorNames = ['red', 'green', 'blue'];
-var origColor = null;
+var origColor = Array();
 var userColor = Array();
 var score = String();
 
@@ -23,21 +23,38 @@ function initializeBackgroundColorButton(text='Change background color') {
     changeBackground();
     document.forms[0].elements['red'].select();
   }
-  var table = centerElement(document.createElement('table'));
-  var row = table.insertRow(0);
-  var cell1 = row.insertCell(0);
-  var cell2 = row.insertCell(1);
-  cell2.style.backgroundColor = '#ffffff';
+  var div = document.createElement('div');
+  div.style.display = "block";
+  var subDiv = document.createElement('div');
+  subDiv.className = "centered";
+  var subDiv1 = document.createElement('div');
+  var subDiv2 = document.createElement('div');
+  subDiv2.style.backgroundColor = '#ffffff';
   this.score = document.createElement('p');
-  cell1.appendChild(button);
-  cell2.appendChild(this.score).style.fontWeight = 'bold';
+  document.body.appendChild(div);
+  div.appendChild(subDiv);
+  subDiv.appendChild(subDiv1);
+  subDiv.appendChild(subDiv2);
+  subDiv1.style.display = 'inline';
+  subDiv2.style.display = 'inline';
+  subDiv1.appendChild(button);
+  subDiv2.appendChild(this.score).style.fontWeight = 'bold';
   figureScore(this.origColor);
-  document.body.appendChild(table);
 };
 
 // Initialize form (with three fields) to submit color
 function initializeColorForm() {
+  // Place form at page bottom
+  var div = document.createElement('div');
+  div.style.position = 'fixed';
+  div.style.bottom = 0;
+  div.style.width = "100%"
+  var subDiv = document.createElement('div');
+  subDiv.className = "centered";
   var form = document.createElement('form');
+  subDiv.appendChild(form);
+  document.body.appendChild(div);
+  div.appendChild(subDiv);
   // Add ID-ed fields for the colors
   for (var i=0 ; i<this.colorNames.length ; i++) {
     var input = document.createElement('input');
@@ -60,31 +77,12 @@ function initializeColorForm() {
     changeBackground(color);
     return false;
   }
-  // Place form at page bottom
-  var div = document.createElement('div');
-  div.style.position = 'fixed';
-  div.style.bottom = 0;
-  div.style.width = "100%"
-  var table = centerElement(document.createElement('table'));
-  var row = table.insertRow(0);
-  var cell = row.insertCell(0);
-  cell.appendChild(form);
-  cell.align = 'center';
-  document.body.appendChild(div);
-  div.appendChild(table);
   document.forms[0].elements['red'].select();
 }
 
 // ********************
 // Utility functions
 // ********************
-
-// Center element
-function centerElement(element) {
-  element.style.margin = 'auto';
-  element.style.width = '0';
-  return element
-}
 
 // Generate a random decimal number 0 <= n <= 255
 function rand256() {

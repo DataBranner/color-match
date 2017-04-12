@@ -1,0 +1,31 @@
+<table class="w3-table w3-border" style="width:100%">
+  <tbody><tr>
+      <th>Red</th>
+      <th>Green</th>
+      <th>Blue</th>
+    </tr>
+    <tr>
+      <td id="valRed">255</td>
+      <td id="valGreen">0</td>
+      <td id="valBlue">253</td>
+    </tr>
+    <tr>
+      <td id="red" style="height:50px;background-color:red"></td>
+      <td id="green" style="background-color:green"></td>
+      <td id="blue" style="background-color:blue"></td>
+    </tr>
+    <tr>
+      <td>
+        <input oninput="changeRed(this.value)" onchange="changeRed(this.value)" id="slideRed" name="slideRed" min="0" max="255" type="range">
+      </td>
+      <td>
+        <input oninput="changeGreen(this.value)" onchange="changeGreen(this.value)" id="slideGreen" name="slideGreen" min="0" max="255" type="range">
+      </td>
+      <td>
+        <input oninput="changeBlue(this.value)" onchange="changeBlue(this.value)" id="slideBlue" name="slideBlue" min="0" max="255" type="range">
+      </td>
+    </tr>
+  </tbody></table>
+
+<!-- https://www.w3schools.com/colors/colors_picker.asp -->
+<!-- https://www.w3schools.com/lib/w3color.js -->
