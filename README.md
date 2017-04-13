@@ -24,8 +24,8 @@ Features:
 
 ### To do next:
 
- * Get `div`s properly centered.
- * Visual color-picker, rather than RGB channel values. Use linear sliders, [0, 255], for each RGB channel.
+ * Visual color-picker, rather than RGB channel values. Use color wheel, [0, 255], for each RGB channel.
+ * Replace `placeholder` with labels.
  * Automated tests.
 
 [end]
