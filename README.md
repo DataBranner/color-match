@@ -5,9 +5,7 @@ Page generates a random background color. User submits additional colors which a
 Features:
 
  * The browser console logs the updated RGB values for easier manual testing.
- * As much styling and HTML as possible is done via JavaScript.
  * User can request new random background color with a button rather than by reloading the page.
- * User input is validated; only integers are accepted (including negative integers, to aid testing).
  * If User's values bring the value of an RGB channel above 255, the new value is not calculated starting from 0 (by ordinary modulus) but counting down from 255 again (by "palindromic modulus" or triangle wave). For example, if a channel value is 250 and User adds 25, the new value is 
  
    ```
@@ -25,7 +23,6 @@ Features:
 ### To do next:
 
  * Visual color-picker, rather than RGB channel values. Use color wheel, [0, 255], for each RGB channel.
- * Replace `placeholder` with labels.
  * Automated tests.
 
 [end]
